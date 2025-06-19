@@ -1,7 +1,6 @@
 Integrantes do grupo:
-- Kauan Cornelsen Pereira
-- Lucas Fritsche
-- Nathan Conerado
+- André Jaocpetti 
+- Matheus Grupp 
 
 A página inicial é /pages/login.html
 
