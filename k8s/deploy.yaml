@@ -16,7 +16,7 @@ spec:
         fsGroup: 33  # ID de grupo comum para www-data no Debian e derivados
       containers:
         - name: meu-deploy
-          image: k1cornelsenp/projeto-ecommerce:latest
+          image: andrejacopetti/projeto-ecommerce:latest
           env:
             - name: DB_HOST
               value: "database-service"
@@ -35,6 +35,6 @@ spec:
       volumes:
         - name: app-content
           hostPath:
-            path: /var/www/html/projeto-ecommerce  # Altere este caminho para o local do código-fonte no host
+            path: /var/www/html/devsecopspucpr  # Altere este caminho para o local do código-fonte no host
             type: Directory
 
