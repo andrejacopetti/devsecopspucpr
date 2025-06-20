@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh '''
                     snyk auth --auth-type=token ${SNYK_TOKEN}
-                    snyk container test ${DOCKER_IMAGE_APP} --severity-threshold=medium --file=/var/www/html/projeto-ecommerce/Dockerfile --exclude-base-image-vulns
+                    snyk container test ${DOCKER_IMAGE_APP} --severity-threshold=medium --file=/var/www/html/devsecopspucpr/Dockerfile --exclude-base-image-vulns
                 '''
             }
         }
@@ -30,7 +30,7 @@ pipeline {
         stage('Snyk Docker Image Scan - Database') {
             steps {
                 sh """
-                    snyk container test ${DOCKER_IMAGE_DB} --severity-threshold=medium --file=/var/www/html/projeto-ecommerce/sql/Dockerfile --exclude-base-image-vulns
+                    snyk container test ${DOCKER_IMAGE_DB} --severity-threshold=medium --file=/var/www/html/devsecopspucpr/sql/Dockerfile --exclude-base-image-vulns
                 """
             }
         }
