@@ -1,13 +1,16 @@
 body{
     display: flex;
+    flex-direction: column; /* ADICIONADO */
     margin: 0px;
+    min-height: 100vh; /* ADICIONADO */
 }
 
 .areaTotal{
-    background-color: #858585;
+    background-color: rgb(255, 212, 212);
     margin: 0px;
     width: 100%;
-    height: 1348px;
+    /* height: 1348px; REMOVIDO - altura fixa */
+    flex: 1; /* ADICIONADO - ocupa espaço disponível */
 }
 
 .header{
@@ -19,7 +22,7 @@ body{
 }
 
 .menu{
-    background-color: #858585;
+    background-color: #ffffff;
     height: 150px;
     position: relative;
     display: flex;
@@ -27,7 +30,7 @@ body{
 }
 
 .btn{
-    background-color: #858585;
+    background-color: #fcc9c9;
     border-radius: 12px;
     transition-duration: 0.4s;
     padding: 10px;
@@ -131,7 +134,7 @@ body{
     width: 90%;
     height: 15%;
     margin-left: 5%;
-    background-color: #858585;
+    background-color: #fcc9c9;
     border-radius: 12px;
     transition-duration: 0.4s;
     padding: 10px;
@@ -152,6 +155,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    /* flex: 1; REMOVIDO */
 }
 
 .rodapeCard{

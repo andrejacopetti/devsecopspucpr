@@ -3,11 +3,15 @@ function gotoProducts(){
 }
 
 function gotoIndex(){
-    window.location.href = "../index/index.html"
+    window.location.href = "../index.html"
 }
 
 function gotoCart(){
     window.location.href = "../pages/cart.html"
+}
+
+function gotoLogin(){
+    window.location.href = "../pages/login.html"
 }
 
 var data = fetch("../php/show-products.php", {
