@@ -29,12 +29,4 @@ spec:
           ports:
             - containerPort: 80
               name: http
-          volumeMounts:
-            - name: app-content
-              mountPath: /var/www/html  # Monta o conteúdo diretamente em /var/www/html para servir corretamente
-      volumes:
-        - name: app-content
-          hostPath:
-            path: /var/www/html/devsecopspucpr  # Altere este caminho para o local do código-fonte no host
-            type: Directory
-
+        
