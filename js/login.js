@@ -16,7 +16,7 @@ function login() {
         var dados = await response.json();
 
         if (dados.success) {
-            window.location.href = "../index/index.html";
+            window.location.href = "../index.html";
         } else {
             alert("Erro ao fazer login: " + dados.message);
         }
