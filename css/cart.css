@@ -1,183 +1,557 @@
-body{
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     display: flex;
-    margin: 0px;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.areaTotal{
-    background-color: #858585;
-    margin: 0px;
+/* Área principal */
+.areaTotal {
+    background-color: rgb(255, 212, 212);
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    margin: 0;
     width: 100%;
-    height: 968px;
+    flex: 1;
 }
 
-.header{
+/* Header */
+.header {
     background-color: #2c2c2c;
     color: #fff;
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 2px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.menu{
-    background-color: #858585;
+/* Menu */
+.menu {
+    background-color: #ffffff;
     height: 150px;
     position: relative;
     display: flex;
     align-items: center;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    padding: 0 20px;
 }
 
-.btn{
-    background-color: #858585;
+/* Botões */
+.btn {
+    background-color: #fcc9c9;
     border-radius: 12px;
-    transition-duration: 0.4s;
-    padding: 10px;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 10px 20px;
     width: 100%;
     height: 60px;
-    font-weight: bold;
-    font-size: large;
+    font-weight: 700;
+    font-size: 18px;
+    color: #2c2c2c;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
 }
 
-.btn:hover{
-    background-color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 24px rgba(0, 0, 0, 0.15), 
+        0 8px 16px rgba(0, 0, 0, 0.12);
     cursor: pointer;
 }
 
-.btnProdutos{
+.btn:hover::before {
+    width: 600px;
+    height: 600px;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btnProdutos {
     margin: auto;
     width: 600px;
+    max-width: 90%;
     position: relative;
 }
 
-.btnLateral{
+.btnLateral {
     width: 150px;
     position: relative;
     margin: 20px;
 }
 
-.logo{
+/* Logo */
+.logo {
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.carrinho{
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Seção Carrinho */
+.carrinho {
     width: 100%;
-    height: 700px;
+    min-height: 700px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+/* Lista de produtos no carrinho */
+.listaCarrinho {
+    width: 65%;
+    max-width: 800px;
+    min-height: 600px;
+}
+
+.listaCarrinhoSpacing {
+    width: 100%;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #2c2c2c;
+    letter-spacing: -1px;
+    position: relative;
 }
 
-.listaCarrinho{
-    width: 70%;
-    height: 700px;
-    float: left;
+.listaCarrinhoSpacing::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #fcc9c9;
+    border-radius: 2px;
 }
 
-.listaCarrinhoSpacing{
-    width: 100%;
-    height: 100px;
-}
-
-.carrinhoCard{
-    width: 70%;
-    height: 50px;
+.carrinhoCard {
+    width: 90%;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    margin-left: 15%;
-    float: left;
-    transition-duration: 0.4s;
-    border-style: solid;
-    border-color: #2c2c2c;
+    margin: 0 auto 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #2c2c2c;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
 }
 
-.carrinhoNome{
+.carrinhoCard::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #fcc9c9;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.carrinhoCard:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.carrinhoCard:hover::before {
+    transform: scaleX(1);
+}
+
+.carrinhoNome {
     width: 60%;
     text-align: center;
-    font-size: xx-large;
-    font-weight: bold;
-    border-style: hidden solid hidden hidden;
-    border-color: #2c2c2c;
+    font-size: 22px;
+    font-weight: 600;
+    color: #2c2c2c;
+    border-right: 2px solid #f0f0f0;
+    padding: 0 20px;
+    letter-spacing: -0.5px;
 }
 
-.carrinhoVal{
+.carrinhoVal {
     width: 40%;
     text-align: center;
-    font-size: xx-large;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: 700;
+    color: #2c2c2c;
+    position: relative;
 }
 
-.checkout{
+.carrinhoVal::before {
+    content: 'R$ ';
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+/* Seção Checkout */
+.checkout {
     width: 30%;
-    height: 700px;
-    float: left;
+    max-width: 400px;
+    position: sticky;
+    top: 20px;
 }
 
-.checkoutCard{
-    width: 80%;
-    height: 330px;
-    background-color: #fff;
-    border-style: solid;
-    border-color: #2c2c2c;
-}
-
-.valorTotal{
+.checkoutCard {
     width: 100%;
-    height: 20%;
+    min-height: 350px;
+    background-color: #fff;
+    border: 3px solid #2c2c2c;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkoutCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.valorTotal {
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: xx-large;
-    font-weight: bold;
+    margin-bottom: 30px;
+    position: relative;
 }
 
-.checkoutBtn{
-    width: 90%;
-    height: 30%;
-    margin-left: 5%;
-    margin-bottom: 10%;
-    background-color: #858585;
+.valorTotal::before {
+    content: 'Total do Carrinho';
+    position: absolute;
+    top: -10px;
+    font-size: 18px;
+    color: #666;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.valorTotal::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background-color: #f0f0f0;
+}
+
+.valorTotal span {
+    font-size: 40px;
+    font-weight: 800;
+    color: #2c2c2c;
+    margin-top: 25px;
+}
+
+.checkoutBtn {
+    width: 100%;
+    height: 65px;
+    background-color: #fcc9c9;
+    border: none;
     border-radius: 12px;
-    transition-duration: 0.4s;
-    font-weight: bold;
-    font-size: large;
-}
-
-.checkoutBtn:hover{
-    background-color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 700;
+    font-size: 20px;
+    color: #2c2c2c;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
 }
 
-.rodape{
+.checkoutBtn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.checkoutBtn:hover {
+    background-color: #2c2c2c;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.checkoutBtn:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.checkoutBtn:active {
+    transform: translateY(0);
+}
+
+/* Rodapé - Mídias Sociais */
+.rodape {
     background-color: #2c2c2c;
     width: 100%;
-    height: 100px;
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    margin-top: auto;
 }
 
-.rodapeCard{
+.rodapeCard {
     width: 200px;
     height: 100px;
-    margin: auto;
+    margin: 0 20px;
     border-radius: 12px;
-    float: left;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
 }
 
-.rodapeImg{
-    margin: auto;
+.rodapeCard:hover {
+    transform: translateY(-5px);
 }
 
-.rodapeTexto{
+.rodapeCard::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #fcc9c9;
+    transition: width 0.3s ease;
+}
+
+.rodapeCard:hover::after {
+    width: 80%;
+}
+
+.rodapeImg {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.rodapeCard:hover .rodapeImg {
+    transform: scale(1.2);
+    filter: drop-shadow(0 5px 10px rgba(252, 201, 201, 0.4));
+}
+
+.rodapeTexto {
     text-align: center;
-    font-size: large;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 600;
     color: #fff;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.rodapeCard:hover .rodapeTexto {
+    opacity: 1;
+    color: #fcc9c9;
+    letter-spacing: 0.5px;
+}
+
+/* Responsividade */
+@media (max-width: 968px) {
+    .carrinho {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .listaCarrinho {
+        width: 100%;
+        max-width: 600px;
+    }
+    
+    .checkout {
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .btnProdutos {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .btnLateral {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .listaCarrinhoSpacing {
+        font-size: 28px;
+    }
+    
+    .carrinhoCard {
+        height: 70px;
+    }
+    
+    .carrinhoNome {
+        font-size: 18px;
+    }
+    
+    .carrinhoVal {
+        font-size: 22px;
+    }
+    
+    .carrinhoVal::before {
+        font-size: 16px;
+    }
+    
+    .valorTotal span {
+        font-size: 32px;
+    }
+    
+    .checkoutBtn {
+        font-size: 18px;
+        height: 55px;
+    }
+    
+    .rodape {
+        flex-wrap: wrap;
+    }
+    
+    .rodapeCard {
+        width: 150px;
+        margin: 10px;
+    }
+    
+    .rodapeImg {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .rodapeTexto {
+        font-size: 14px;
+    }
+}
+
+/* Carrinho vazio */
+.carrinhoVazio {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 24px;
+    opacity: 0.7;
+}
+
+.carrinhoVazio::before {
+    content: '🛒';
+    font-size: 60px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carrinhoCard {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Estados de foco para acessibilidade */
+.btn:focus,
+.checkoutBtn:focus,
+.logo:focus,
+.rodapeCard:focus {
+    outline: 3px solid #fcc9c9;
+    outline-offset: 2px;
+}
+
+/* Melhorias de performance */
+.carrinhoCard,
+.btn,
+.checkoutBtn {
+    will-change: transform;
+}
+
+/* Correções finais */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    font-family: inherit;
 }

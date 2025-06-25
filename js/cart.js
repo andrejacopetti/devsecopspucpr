@@ -50,7 +50,7 @@ function gotoProducts(){
 }
 
 function gotoIndex(){
-    window.location.href = "../index/index.html"
+    window.location.href = "../index.html"
 }
 
 function gotoCart(){
