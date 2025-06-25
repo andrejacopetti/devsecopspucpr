@@ -28,7 +28,7 @@ VALUES
     ('Conjunto verao para meninas', 'Verao eh na Pequeninos', 379),
     ('Conjunto para inverno', 'INFERNO DE SUCESSO', 100),
     ('Conjunto pijama', '9 EM 10 NO BAILE TÃO USANDO, SÓ FALTA VOCÊ', 240),
-    ('Conjunto pega perua', 'DE CRIA', 150),
+    ('Conjunto pega perua', 'DE CRIA', 150)
 
 
 -- Cria o usuário e concede privilégios
