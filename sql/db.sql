@@ -25,12 +25,11 @@ CREATE TABLE IF NOT EXISTS carrinho (
 
 INSERT INTO produto (nome, descricao, valor)
 VALUES 
-    ('Bermuda Cyclone', 'BERMUDA AZUL PRA COMBINAR COM O KENNER', 379),
-    ('Boné Kondzilla', 'BONÉ DE SUCESSO', 100),
-    ('Camisa do Messi', '9 EM 10 NO BAILE TÃO USANDO, SÓ FALTA VOCÊ', 240),
-    ('Chinelo Kenner', 'DE KENNER', 150),
-    ('Corrente de Ouro', 'CORRENTE DE OURO 24K 70CM', 2990),
-    ('Óculos Juliet', 'UM ITEM DE CRIA QUE NÃO PODE FALTAR', 125);
+    ('Conjunto verao para meninas', 'Verao eh na Pequeninos', 379),
+    ('Conjunto para inverno', 'INFERNO DE SUCESSO', 100),
+    ('Conjunto pijama', '9 EM 10 NO BAILE TÃO USANDO, SÓ FALTA VOCÊ', 240),
+    ('Conjunto pega perua', 'DE CRIA', 150),
+
 
 -- Cria o usuário e concede privilégios
 CREATE USER IF NOT EXISTS 'toor'@'%' IDENTIFIED BY 'senhasecure1234#';
