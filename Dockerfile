@@ -1,4 +1,4 @@
-FROM php:8.1-apache
+FROM php:8.5.2-apache
 
 # Atualiza o repositório e instala a extensão mysqli
 RUN apt-get update && \
